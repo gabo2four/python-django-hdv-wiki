@@ -1,0 +1,18 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+    {% if entrie %}
+    <a class="btn btn-dark" href="{% url 'editPage' tittle %}">Edit Page</a>
+    <p>
+        {{entrie|safe}}
+    </p>
+    {% else %}
+        <h1>Nothing found related to {{tittle}}</h1>
+    {% endif %}
+    
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+<style>
+    input{
+        width: 100%;
+    }
+    form > input{
+        width: 80%;
+    }
+    textarea{
+        height: 700px;
+        width: 100%;
+    }
+    table{
+        width: 80%;
+    }
+</style>
+<div class="form-group">
+    <h1>New Page</h1>
+    {% if wM %}
+    
+    <h1 style="color: red;">{{ wM }}</h1>
+    {% endif %}
+    <br>
+    <form action="{% url 'newPage' %}" method="POST">
+        <table >
+        {% csrf_token %}
+        {{ form.as_table }}
+        </table>
+        <input type="submit" value="Save">
+        
+    </form>
+   
+</div>
+{% endblock %}
